@@ -34,7 +34,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
     return
       Scaffold(
           backgroundColor: HexColor.fromHex('#12141D'),
-          appBar: AppBar(title: Text('Sponsors',style: TextStyle(
+          appBar: AppBar(title: const Text('Sponsors',style: TextStyle(
             color: Colors.white,
 
             fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                       child: Container(
                         height: 260,
                         width: 320,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
                             borderRadius: BorderRadius.
                             only(
@@ -80,7 +80,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(document['name'] ?? '',style: TextStyle(
+                              Text(document['name'] ?? '',style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
 
@@ -88,7 +88,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
 
                               )),
-                              SizedBox(height: 5,),
+                              const SizedBox(height: 5,),
 
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +105,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
 
                                       )),
-                                      Text(document['email'] ?? '',style: TextStyle(
+                                      Text(document['email'] ?? '',style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
 
@@ -114,7 +114,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
                                       ))
                                     ],),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
 
@@ -128,7 +128,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
 
                                       )),
-                                      Text(document['phone'] ?? '',style: TextStyle(
+                                      Text(document['phone'] ?? '',style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
 
@@ -139,7 +139,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                                     ],)
                                 ],
                               ),
-                              SizedBox(height: 20,),
+                              const SizedBox(height: 20,),
                               Row( mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,children: [
                                   Text('Donation : ',style: TextStyle(
@@ -150,7 +150,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
 
                                   )),
-                                  Text("Rs.${document['donation'] ?? ''}" ,style: TextStyle(
+                                  Text("Rs.${document['donation'] ?? ''}" ,style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
 
@@ -159,14 +159,14 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
 
                                   ))
                                 ],),
-                              SizedBox(height: 20,),
+                              const SizedBox(height: 20,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
                                     height: 35,
                                     width: 120,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
                                         borderRadius: BorderRadius.
                                         only(
@@ -178,7 +178,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                                         color: Colors.red
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text('Decline',style: TextStyle(
                                         color: Colors.white,
 
@@ -191,7 +191,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                                   Container(
                                     height: 35,
                                     width: 120,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
                                         borderRadius: BorderRadius.
                                         only(
@@ -203,7 +203,7 @@ class _SponsorRequestPageState extends State<SponsorRequestPage> {
                                         color: Colors.green
 
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text('Accept',style: TextStyle(
                                         color: Colors.white,
 

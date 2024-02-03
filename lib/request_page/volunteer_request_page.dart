@@ -1,4 +1,5 @@
 import 'package:clg_events/constants/colorsss.dart';
+import 'package:clg_events/helpers/notification_helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -49,7 +50,7 @@ class _VolRequestPageState extends State<VolRequestPage> {
       appBar: AppBar(
         title: Text(
          !widget.isvol!?'Participants': 'volunteer',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
@@ -78,7 +79,7 @@ class _VolRequestPageState extends State<VolRequestPage> {
                 child: Container(
                   height: 230,
                   width: 320,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12),
@@ -95,12 +96,12 @@ class _VolRequestPageState extends State<VolRequestPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(document['name']?? '',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Column(
@@ -118,14 +119,14 @@ class _VolRequestPageState extends State<VolRequestPage> {
                                       fontWeight: FontWeight.bold,
                                     )),
                                 Text(document['email']?? '',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ))
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Column(
@@ -139,7 +140,7 @@ class _VolRequestPageState extends State<VolRequestPage> {
                                       fontWeight: FontWeight.bold,
                                     )),
                                 Text(document['phone']?? '',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -148,52 +149,65 @@ class _VolRequestPageState extends State<VolRequestPage> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: 35,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                  // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(12),
-                                    topRight: Radius.circular(12),
-                                    bottomLeft: Radius.circular(12),
-                                    bottomRight: Radius.circular(12),
-                                  ),
-                                  color: Colors.red),
-                              child: Center(
-                                child: Text(
-                                  'Decline',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                            InkWell(
+                              onTap: ()async{
+                              bool isdonene = await NotificationHelper.sendFcmMessage('Declined','Request has been declined',document['fcmToken']);
+  print('isdonene');
+                              print(isdonene);
+                              print('isdonene');
+                              },
+                              child: Container(
+                                height: 35,
+                                width: 120,
+                                decoration: const BoxDecoration(
+                                    // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(12),
+                                      topRight: Radius.circular(12),
+                                      bottomLeft: Radius.circular(12),
+                                      bottomRight: Radius.circular(12),
+                                    ),
+                                    color: Colors.red),
+                                child: const Center(
+                                  child: Text(
+                                    'Decline',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              height: 35,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                  // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(12),
-                                    topRight: Radius.circular(12),
-                                    bottomLeft: Radius.circular(12),
-                                    bottomRight: Radius.circular(12),
-                                  ),
-                                  color: Colors.green),
-                              child: Center(
-                                child: Text(
-                                  'Accept',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                            InkWell(
+                              onTap: (){
+                                NotificationHelper.sendFcmMessage('Accepted','Request has been accepted',document['fcmToken']);
+                              },
+                              child: Container(
+                                height: 35,
+                                width: 120,
+                                decoration: const BoxDecoration(
+                                    // color: currentTheme.themeBox.colors.blankButton.withOpacity(0.04),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(12),
+                                      topRight: Radius.circular(12),
+                                      bottomLeft: Radius.circular(12),
+                                      bottomRight: Radius.circular(12),
+                                    ),
+                                    color: Colors.green),
+                                child: const Center(
+                                  child: Text(
+                                    'Accept',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
